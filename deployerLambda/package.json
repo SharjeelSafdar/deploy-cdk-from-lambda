@@ -1,32 +1,28 @@
 {
-  "name": "deployer_lambda",
+  "name": "deploy-cdk-from-lambda",
   "version": "0.1.0",
+  "license": "MIT",
   "bin": {
-    "deployer_lambda": "bin/deployer_lambda.js"
+    "lambda-image": "bin/lambda-image.js"
   },
   "scripts": {
-    "build": "./node_modules/typescript/bin/tsc",
-    "watch": "./node_modules/typescript/bin/tsc -w",
-    "test": "./node_modules/jest/bin/jest",
-    "setup": "npm install",
-    "list": "./node_modules/aws-cdk/bin/cdk list",
-    "cdk": "./node_modules/aws-cdk/bin/cdk",
-    "deploy": "./node_modules/aws-cdk/bin/cdk deploy",
-    "synth": "./node_modules/aws-cdk/bin/cdk synth --output synth",
-    "destroy": "./node_modules/aws-cdk/bin/cdk destroy"
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.92",
     "@types/jest": "^26.0.10",
     "@types/node": "10.17.27",
-    "aws-cdk": "2.10.0",
+    "aws-cdk": "2.8.0",
     "jest": "^26.4.2",
     "ts-jest": "^26.2.0",
     "ts-node": "^9.0.0",
     "typescript": "~3.9.7"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.10.0",
+    "aws-cdk-lib": "2.8.0",
     "constructs": "^10.0.0",
     "source-map-support": "^0.5.16"
   }

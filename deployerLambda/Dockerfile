@@ -1,13 +1,17 @@
 #Adding base image
-FROM amazon/aws-lambda-nodejs:12
-# Alternatively, you can pull the base image from Docker Hub: public.ecr.aws/lambda/nodejs:12
+FROM public.ecr.aws/lambda/nodejs:14
+# Alternatively, you can pull the base image from Docker Hub: amazon/aws-lambda-nodejs:14
 
-COPY handler package*.json /var/task/
+COPY . /var/task/
 
 # Install NPM dependencies for function
-RUN npm install
+RUN npm i -g typescript aws-cdk@^2.8.0 yarn
+RUN yarn
 
-WORKDIR "handler"
+# Build TypeScript files
+RUN tsc
 
 # Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
-CMD [ "index.handler" ]
+
+CMD [ "app.handler" ]
+

@@ -1,9 +1,11 @@
 {
-  "app": "node bin/deployer_lambda.ts",
+  "app": "npx ts-node --prefer-ts-exts bin/deployer-lambda.ts",
   "output": "/tmp/cdk.out",
   "requireApproval": "never",
   "watch": {
-    "include": ["**"],
+    "include": [
+      "**"
+    ],
     "exclude": [
       "README.md",
       "cdk*.json",
@@ -23,7 +25,9 @@
     "@aws-cdk/aws-lambda:recognizeVersionProps": true,
     "@aws-cdk/aws-cloudfront:defaultSecurityPolicyTLSv1.2_2021": true,
     "@aws-cdk-containers/ecs-service-extensions:enableDefaultLogDriver": true,
-    "@aws-cdk/aws-ec2:uniqueImdsv2TemplateName": true,
-    "@aws-cdk/core:target-partitions": ["aws", "aws-cn"]
+    "@aws-cdk/core:target-partitions": [
+      "aws",
+      "aws-cn"
+    ]
   }
 }

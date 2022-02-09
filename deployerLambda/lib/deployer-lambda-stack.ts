@@ -1,11 +1,15 @@
 import { Stack, StackProps } from "aws-cdk-lib";
+import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
-import * as s3 from "aws-cdk-lib/aws-s3";
+import * as sqs from "aws-cdk-lib/aws-sqs";
 
 export class DeployerLambdaStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
-    new s3.Bucket(this, "cdk-lambda-bucket");
+    // example resource
+    const queue = new sqs.Queue(this, "LambdaImageQueue", {
+      visibilityTimeout: cdk.Duration.seconds(300)
+    });
   }
 }
