@@ -12,7 +12,7 @@ export class CdkLambdaStack extends Stack {
     const deployerLambdaRepo = ecr.Repository.fromRepositoryName(
       this,
       "deployer-lambda-repo",
-      "lambda-image-basic"
+      "cdk-deployer-lambda"
     );
 
     const lambdaFunction = new lambda.DockerImageFunction(
